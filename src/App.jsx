@@ -38,7 +38,7 @@ function App() {
       <div className="h-screen w-full relative overflow-hidden z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4 w-full">
           <SplitText
-            text="Swaroop Vyawahare"
+            text="Vyankatesh Bairagi"
             className="text-4xl md:text-6xl font-bold text-center font-['Poppins']"
             delay={100}
             duration={0.6}
