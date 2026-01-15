@@ -320,7 +320,7 @@ function App() {
               <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Contact</p>
               <h2 className="mt-2 text-3xl font-semibold text-white">Let&apos;s build something</h2>
               <p className="mt-3 text-slate-300">
-                I&apos;m open to internships, freelance work, and collaborations. Tell me about your idea, product, or the role you&aposre hiring for.
+                I'm open to internships, freelance work, and collaborations. Tell me about your idea, product, or the role you're hiring for.
               </p>
               <div className="mt-6 space-y-3">
                 {contacts.map((item) => (
