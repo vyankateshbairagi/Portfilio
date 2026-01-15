@@ -42,7 +42,7 @@ const Contact = () => {
                 </p>
 
                 <a
-                    href="mailto:dev.swaroop.2004@gmail.com"
+                    href="mailto:vyankateshbairagi.dev@gmail.com"
                     className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-cyan-400 transition-colors duration-300 group"
                 >
                     Say Hello
@@ -50,22 +50,22 @@ const Contact = () => {
                 </a>
 
                 <div className="mt-16 flex justify-center gap-8">
-                    <a href="https://github.com/vswaroop07" className="text-zinc-500 hover:text-white transition-colors duration-300">
+                    <a href="https://github.com/vyankateshbairagi" className="text-zinc-500 hover:text-white transition-colors duration-300">
                         <Github size={24} />
                         <span className="sr-only">GitHub</span>
                     </a>
-                    <a href="https://www.linkedin.com/in/swaroop-vyawahare/" className="text-zinc-500 hover:text-white transition-colors duration-300">
+                    <a href="https://linkedin.com/in/vyankateshbairagi" className="text-zinc-500 hover:text-white transition-colors duration-300">
                         <Linkedin size={24} />
                         <span className="sr-only">LinkedIn</span>
                     </a>
-                    <a href="mailto:dev.swaroop.2004@gmail.com" className="text-zinc-500 hover:text-white transition-colors duration-300">
+                    <a href="mailto:vyankateshbairagi.dev@gmail.com" className="text-zinc-500 hover:text-white transition-colors duration-300">
                         <Mail size={24} />
                         <span className="sr-only">Email</span>
                     </a>
                 </div>
 
                 <div className="mt-24 text-sm text-zinc-600">
-                    <p>© 2026 Swaroop Vyawahare. All rights reserved.</p>
+                    <p>© 2026 Vyankatesh Bairagi. All rights reserved.</p>
                 </div>
             </div>
         </section>

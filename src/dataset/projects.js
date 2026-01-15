@@ -1,34 +1,24 @@
-import { MapPin, Phone, ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Smartphone, Database } from 'lucide-react';
 
 export const projects = [
     {
         id: 1,
-        title: "Uber Clone",
-        description: "A full-featured ride booking application with real-time tracking.",
-        tech: ["MERN Stack", "Socket.io", "Mapbox", "Tailwind"],
-        icon: MapPin,
+        title: "Grocery Website",
+        description: "Full-stack grocery web app for online product browsing, offers, and secure shopping experience with admin panel for product management (CRUD), authentication, and real-time stock updates.",
+        tech: ["MERN Stack", "MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS"],
+        icon: ShoppingCart,
         color: "text-green-400",
-        link: "#", // Placeholder
+        link: "#",
         featured: true
     },
     {
         id: 2,
-        title: "Contacts App",
-        description: "Smart contact management system with Firebase authentication and real-time database updates.",
-        tech: ["React.js", "Firebase", "Context API"],
-        icon: Phone,
+        title: "Agri App - Government Schemes",
+        description: "Mobile application simplifying farmers' access to government schemes with real-time updates, eligibility checks, document uploads, and secure Aadhaar/PAN-based submission. Published in IJARSCT journal (Vol. 3, Issue 8, April 2023).",
+        tech: ["Android", "Firebase", "Java", "XML", "Firebase Auth", "Firestore"],
+        icon: Smartphone,
         color: "text-blue-400",
         link: "#",
-        featured: false
-    },
-    {
-        id: 3,
-        title: "CarsWorld",
-        description: "Comprehensive e-commerce platform for automotive parts and accessories.",
-        tech: ["React.js", "Node.js", "MongoDB", "Redux"],
-        icon: ShoppingCart,
-        color: "text-red-400",
-        link: "#",
-        featured: false
+        featured: true
     }
 ];

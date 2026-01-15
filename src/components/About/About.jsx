@@ -41,20 +41,21 @@ const About = () => {
                 </h3>
 
                 <p className="about-text text-lg md:text-xl text-zinc-400 leading-relaxed max-w-2xl mx-auto mb-10">
-                    I am a Computer Engineering student and Full-Stack Developer passionate about
-                    creating intuitive, performance-driven web applications. With a strong foundation
-                    in the <span className="text-white">MERN stack</span> and a curiosity for <span className="text-white">DevOps</span> and <span className="text-white">Cloud Engineering</span>,
-                    I bridge the gap between elegant design and robust backend logic.
+                    I am a driven Computer Engineering student with a passion for web development,
+                    backend systems, and scalable application design. Committed to delivering
+                    high-quality solutions with a strong foundation in the <span className="text-white">MERN stack</span>,
+                    learning new technologies rapidly, and growing into a versatile software professional
+                    capable of contributing to multiple domains.
                 </p>
 
                 <div className="about-text flex justify-center gap-6">
                     <div className="flex flex-col items-center gap-2">
-                        <span className="text-3xl font-bold text-white">2+</span>
-                        <span className="text-sm text-zinc-500 uppercase tracking-widest">Years Exp.</span>
+                        <span className="text-3xl font-bold text-white">8.48</span>
+                        <span className="text-sm text-zinc-500 uppercase tracking-widest">CGPA</span>
                     </div>
                     <div className="w-px h-12 bg-zinc-800"></div>
                     <div className="flex flex-col items-center gap-2">
-                        <span className="text-3xl font-bold text-white">10+</span>
+                        <span className="text-3xl font-bold text-white">5+</span>
                         <span className="text-sm text-zinc-500 uppercase tracking-widest">Projects</span>
                     </div>
                 </div>
