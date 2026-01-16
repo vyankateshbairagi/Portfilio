@@ -1,38 +1,56 @@
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
 import Navbar from "./components/Navbar";
-import FloatingLines from './components/FloatingLines';
-import useWindowSize from './hooks/useWindowSize';
-import SplitText from './components/SplitText';
-import TextType from './components/TextType';
-import StarBorder from './components/StarBorder';
-import About from './components/About/About';
-import Skills from './components/Skills/Skills';
-import Projects from './components/Projects/Projects';
-import Experience from './components/Experience/Experience';
-import Contact from './components/Contact/Contact';
+import ParticleBackground from "./components/ParticleBackground";
+import useWindowSize from "./hooks/useWindowSize";
+import SplitText from "./components/SplitText";
+import TextType from "./components/TextType";
+import StarBorder from "./components/StarBorder";
+import About from "./components/About/About";
+import Skills from "./components/Skills/Skills";
+import Projects from "./components/Projects/Projects";
+import Experience from "./components/Experience/Experience";
+import Contact from "./components/Contact/Contact";
 
 function App() {
+  const [theme, setTheme] = useState(() =>
+    typeof window !== "undefined"
+      ? localStorage.getItem("theme") || "dark"
+      : "dark"
+  );
   const { width } = useWindowSize();
   const isMobile = width < 768;
+  const isDark = theme === "dark";
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
 
   const handleAnimationComplete = () => {
-    console.log('All letters have animated!');
+    console.log("All letters have animated!");
   };
 
   return (
-    <div className="relative w-full bg-black text-white">
+    <div
+      className={`relative w-full transition-colors duration-500 ${
+        isDark ? "bg-[#0a1628] text-white" : "bg-slate-50 text-slate-900"
+      }`}
+    >
       {/* Fixed Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <FloatingLines
-          lineCount={isMobile ? 5 : 6}
-          lineDistance={isMobile ? 10 : 5}
-          enabledWaves={isMobile ? ['middle', 'bottom'] : ['top', 'middle', 'bottom']}
-          animationSpeed={isMobile ? 0.5 : 1}
-          parallax={!isMobile}
+        <ParticleBackground
+          particleCount={isMobile ? 30 : 60}
+          particleColor={isDark ? "#4a90e2" : "#0ea5e9"}
+          particleSize={2}
+          speed={0.3}
+          opacity={isDark ? 0.7 : 0.5}
         />
       </div>
 
-      <Navbar />
+      <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
       {/* Hero Section */}
       <div className="h-screen w-full relative overflow-hidden z-10">
@@ -52,19 +70,29 @@ function App() {
             onLetterAnimationComplete={handleAnimationComplete}
           />
           <TextType
-            text={["Full Stack Developer", "UI/UX Designer", "DevOps Enthusiast", "Cloud Enthusiast"]}
+            text={[
+              "Aspiring Full - Stack MERN Developer",
+              "Building Real - World Web Applications",
+              "React • Node.js • Express • MongoDB",
+              "Clean Code • Consistency • Growth Mindset",
+            ]}
             typingSpeed={75}
             pauseDuration={1500}
             showCursor={true}
             cursorCharacter="|"
-            className="text-xl md:text-2xl text-gray-300"
+            className={`text-xl md:text-2xl ${
+              isDark ? "text-gray-300" : "text-slate-600"
+            }`}
           />
         </div>
 
-        <div id="star-border-btn" className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50">
+        <div
+          id="star-border-btn"
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50"
+        >
           <StarBorder
             as="a"
-            href="https://drive.google.com/file/d/1fmXMAHyF47g5kfr5qFmhXXpDd0utKr4z/view?usp=sharing"
+            href="https://drive.google.com/file/d/1hHlyXoqETiGvsvnh88Odou5Y6kgKbEEJ/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="custom-class"
@@ -76,15 +104,14 @@ function App() {
         </div>
       </div>
 
-
       {/* About Section */}
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
+      <About theme={theme} />
+      <Skills theme={theme} />
+      <Projects theme={theme} />
+      <Experience theme={theme} />
+      <Contact theme={theme} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
