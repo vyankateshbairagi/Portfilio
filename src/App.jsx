@@ -69,21 +69,9 @@ function App() {
             textAlign="center"
             onLetterAnimationComplete={handleAnimationComplete}
           />
-          <TextType
-            text={[
-              "Aspiring Full - Stack MERN Developer",
-              "Building Real - World Web Applications",
-              "React • Node.js • Express • MongoDB",
-              "Clean Code • Consistency • Growth Mindset",
-            ]}
-            typingSpeed={75}
-            pauseDuration={1500}
-            showCursor={true}
-            cursorCharacter="|"
-            className={`text-xl md:text-2xl ${
-              isDark ? "text-gray-300" : "text-slate-600"
-            }`}
-          />
+            <div className="text-xl md:text-2xl font-semibold text-center font-['Poppins'] mt-4">
+              Aspiring MERN Stack Developer
+            </div>
         </div>
 
         <div
