@@ -43,7 +43,7 @@ const About = ({ theme = 'dark' }) => {
                         isDark ? 'text-cyan-400' : 'text-cyan-600'
                     }`}
                 >
-                    About Me
+                    Who I Am
                 </h2>
 
                 <h3

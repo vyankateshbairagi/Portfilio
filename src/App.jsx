@@ -87,7 +87,7 @@ function App() {
             color="magenta"
             speed="5s"
           >
-            Grab My CV
+            Get My Resume
           </StarBorder>
         </div>
       </div>
