@@ -71,7 +71,7 @@ function App() {
             onLetterAnimationComplete={handleAnimationComplete}
           />
             <div className="text-xl md:text-2xl font-semibold text-center font-['Poppins'] mt-4">
-              Aspiring MERN Stack Developer
+              Frontend-focused MERN Developer
             </div>
             
             {/* Social Media Icons */}

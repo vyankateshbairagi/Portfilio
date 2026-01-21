@@ -109,7 +109,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
                         <img src={logo} alt="Logo" className="h-5 w-auto object-contain select-none" />
                     </div>
                     <span className={`hidden sm:block text-sm font-bold bg-gradient-to-r ${isDark ? 'from-blue-400 to-purple-400' : 'from-blue-600 to-purple-600'} bg-clip-text text-transparent`}>
-                        PORTFOLIO
+                    PORTFOLIO
                     </span>
                 </div>
 
@@ -137,11 +137,11 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
 
                 {/* Right Section - Theme Toggle & Mobile Menu */}
                 <div className="flex items-center gap-3">
-                    {/* Desktop Theme Toggle */}
+                    {/* Desktop Theme Toggle (icon only) */}
                     <button
                         onClick={onToggleTheme}
                         aria-label="Toggle theme"
-                        className={`hidden sm:flex items-center justify-center gap-2 rounded-lg px-3 py-2 text-sm font-semibold transition-all duration-300 ${
+                        className={`hidden sm:flex items-center justify-center rounded-lg px-3 py-2 transition-all duration-300 ${
                             isDark
                                 ? 'bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/40'
                                 : 'bg-slate-100/50 border border-slate-200/50 hover:bg-slate-100 hover:border-slate-300'
@@ -152,7 +152,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
                         ) : (
                             <Moon size={18} className="transition-transform duration-300" />
                         )}
-                        <span className="hidden md:inline text-xs">{isDark ? 'Light' : 'Dark'}</span>
+                        <span className="sr-only">Switch theme</span>
                     </button>
 
                     {/* Mobile Menu Button */}
@@ -189,26 +189,17 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
                         );
                     })}
                     
-                    {/* Mobile Theme Toggle */}
+                    {/* Mobile Theme Toggle (icon only) */}
                     <button
                         onClick={() => { onToggleTheme(); toggleMenu(); }}
-                        className={`flex items-center justify-center gap-3 rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-300 mt-2 border-t border-white/10 pt-3 ${
+                        className={`flex items-center justify-center rounded-lg px-4 py-3 transition-all duration-300 mt-2 border-t border-white/10 pt-3 ${
                             isDark
                                 ? 'bg-white/5 hover:bg-white/10'
                                 : 'bg-slate-100/30 hover:bg-slate-100/50'
                         }`}
                     >
-                        {isDark ? (
-                            <>
-                                <Sun size={18} />
-                                <span>Light Mode</span>
-                            </>
-                        ) : (
-                            <>
-                                <Moon size={18} />
-                                <span>Dark Mode</span>
-                            </>
-                        )}
+                        {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                        <span className="sr-only">Switch theme</span>
                     </button>
                 </div>
             )}
