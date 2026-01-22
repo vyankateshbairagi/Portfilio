@@ -64,7 +64,7 @@ const About = ({ theme = 'dark' }) => {
                     backend systems, and scalable application design. Committed to delivering
                     high-quality solutions with a strong foundation in the <span className="text-white">MERN stack</span>,
                     learning new technologies rapidly, and growing into a versatile software professional
-                    capable of contributing to multiple domains.
+                    capable of contributing to multiple domains. 
                 </p>
 
                 <div className="about-text flex justify-center gap-6">
