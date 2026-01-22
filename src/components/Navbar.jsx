@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+ import React, { useState, useRef, useEffect } from 'react';
 import logo from '../assets/Logo.png';
 import { Menu, X, Sun, Moon, Home, Users, Briefcase, Award, Mail, Github, Linkedin } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
