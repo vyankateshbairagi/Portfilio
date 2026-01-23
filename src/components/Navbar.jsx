@@ -110,7 +110,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
                         <img src={logo} alt="Logo" className="h-5 w-auto object-contain select-none" />
                     </div>
                     <span className={`hidden sm:block text-sm font-bold bg-gradient-to-r ${isDark ? 'from-blue-400 to-purple-400' : 'from-blue-600 to-purple-600'} bg-clip-text text-transparent`}>
-                    PORTFOLIO
+                    VYANKATESH
                     </span>
                 </div>
 
