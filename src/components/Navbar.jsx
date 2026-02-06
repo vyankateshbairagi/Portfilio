@@ -8,6 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Define navigation items with icons and links
+
 const navItems = [
     { name: 'About', icon: Users, href: '#about' },
     { name: 'Skills', icon: Award, href: '#skills' },
