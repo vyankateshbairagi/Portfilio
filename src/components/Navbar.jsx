@@ -191,7 +191,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
                             </a>
                         );
                     })}
-                    
+                    {/* this is something ........... */}
                     {/* Mobile Theme Toggle (icon only) */}
                     <button
                         onClick={() => { onToggleTheme(); toggleMenu(); }}
