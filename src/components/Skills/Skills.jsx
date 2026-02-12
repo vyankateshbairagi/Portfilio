@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { skills } from '../../dataset/skills';
+import { skills } from './skills';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,6 +82,7 @@ const Skills = ({ theme = 'dark' }) => {
                     <SkillCategory title="Frontend" items={skills.frontend} theme={theme} />
                     <SkillCategory title="Backend" items={skills.backend} theme={theme} />
                     <SkillCategory title="Database" items={skills.database} theme={theme} />
+                    <SkillCategory title="Core Competencies" items={skills.coreCompetencies} theme={theme} />
                     <SkillCategory title="Tools & Cloud" items={skills.tools} theme={theme} />
                 </div>
             </div>

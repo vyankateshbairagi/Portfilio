@@ -31,18 +31,8 @@ const Contact = ({ theme = 'dark' }) => {
         <section
             id="contact"
             ref={containerRef}
-            className={`py-32 px-6 flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-500 ${
-                isDark ? 'bg-black' : 'bg-white'
-            }`}
+            className="py-32 px-6 flex flex-col items-center justify-center relative overflow-hidden transition-colors duration-500"
         >
-            {/* Background Gradient */}
-            <div
-                className={`absolute inset-0 pointer-events-none ${
-                    isDark
-                        ? 'bg-gradient-to-t from-zinc-900 via-black to-black'
-                        : 'bg-gradient-to-t from-slate-200 via-white to-white'
-                }`}
-            ></div>
 
             <div className="contact-content max-w-3xl mx-auto text-center relative z-10">
                 <h2

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { projects } from '../../dataset/projects';
+import { projects } from './projects';
 import { ExternalLink, Github } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);

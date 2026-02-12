@@ -7,9 +7,9 @@ import SplitText from "./components/SplitText";
 import TextType from "./components/TextType";
 import StarBorder from "./components/StarBorder";
 import About from "./components/About/About";
-import Skills from "./components/Skills/Skills";
-import Projects from "./components/Projects/Projects";
-import Experience from "./components/Experience/Experience";
+import Skills from "./components/Skills/Skills.jsx";
+import Projects from "./components/Projects/Projects.jsx";
+import Experience from "./components/Experience/Experience.jsx";
 import Contact from "./components/Contact/Contact";
 import { Linkedin, Github, Youtube, Twitter, Mail } from "lucide-react";
 

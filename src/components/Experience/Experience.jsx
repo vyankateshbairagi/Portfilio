@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { experience } from '../../dataset/experience';
+import { experience } from './experience';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,9 +70,7 @@ const Experience = ({ theme = 'dark' }) => {
         <section
             id="experience"
             ref={containerRef}
-            className={`py-24 px-6 relative z-10 transition-colors duration-500 ${
-                isDark ? 'bg-zinc-950/30' : 'bg-slate-100'
-            }`}
+            className="py-24 px-6 relative z-10 transition-colors duration-500"
         >
             <div className="max-w-4xl mx-auto">
                 <h2
