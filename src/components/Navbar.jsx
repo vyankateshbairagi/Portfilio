@@ -21,7 +21,6 @@ const navItems = [
 const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('');
-    const [scrolled, setScrolled] = useState(false);
     const containerRef = useRef(null);
     const linksRef = useRef([]);
     const isDark = theme === 'dark';
@@ -41,7 +40,6 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
         const handleScroll = () => {
             const sections = ['about', 'skills', 'projects', 'experience', 'contact'];
             const scrollPosition = window.scrollY + 200;
-            setScrolled(window.scrollY > 50);
 
             for (const section of sections) {
                 const element = document.getElementById(section);
@@ -85,8 +83,8 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
     }, [isOpen]);
 
     const navShell = isDark
-        ? `border border-white/5 bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-xl text-white shadow-2xl ${scrolled ? 'shadow-black/40' : ''}`
-        : `border border-slate-200/50 bg-gradient-to-br from-white/90 via-slate-50/80 to-white/70 backdrop-blur-xl text-slate-900 shadow-xl ${scrolled ? 'shadow-slate-200/50' : ''}`;
+        ? `border border-white/5 bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-xl text-white shadow-2xl`
+        : `border border-slate-200/50 bg-gradient-to-br from-white/90 via-slate-50/80 to-white/70 backdrop-blur-xl text-slate-900 shadow-xl`;
 
     const linkBase = isDark 
         ? 'text-gray-300 hover:text-white hover:bg-white/5' 
@@ -103,7 +101,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
     return (
         <nav
             ref={containerRef}
-            className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${scrolled ? 'top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-[1200px] rounded-2xl' : 'top-0 w-full rounded-none'} border px-6 py-3 overflow-hidden h-[60px] ${navShell}`}
+            className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-[1200px] rounded-2xl z-[100] transition-all duration-300 border px-6 py-3 overflow-hidden h-[60px] ${navShell}`}
         >
             <div className="flex items-center justify-between h-full">
                 {/* Logo Section */}
