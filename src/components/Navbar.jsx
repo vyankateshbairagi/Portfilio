@@ -32,7 +32,10 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        setIsOpen(false);
     };
+
+   
 
     useEffect(() => {
         const handleScroll = () => {
