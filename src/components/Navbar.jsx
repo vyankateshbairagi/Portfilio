@@ -108,11 +108,12 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
                     className="flex items-center gap-3 cursor-pointer transition-transform duration-300 hover:scale-105" 
                     onClick={scrollToTop}
                 >
-                    <div className={`${isDark ? 'bg-white/10' : 'bg-slate-100/50'} p-2 rounded-lg backdrop-blur-sm`}>
-                        <img src={logo} alt="Logo" className="h-5 w-auto object-contain select-none" />
-                    </div>
+                {/* //     <div className={`${isDark ? 'bg-white/10' : 'bg-slate-100/50'} p-2 rounded-lg backdrop-blur-sm`}>
+                //         <img src={logo} alt="Logo" className="h-5 w-auto object-contain select-none" />
+                //     </div> */}
+
                     <span className={`hidden sm:block text-sm font-bold bg-gradient-to-r ${isDark ? 'from-blue-400 to-purple-400' : 'from-blue-600 to-purple-600'} bg-clip-text text-transparent`}>
-                    VYANKATESH
+                    Vyankatesh Bairagi
                     </span>
                 </div>
 
