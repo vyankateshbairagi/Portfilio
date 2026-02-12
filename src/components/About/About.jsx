@@ -69,7 +69,7 @@ const About = ({ theme = 'dark' }) => {
 
                 <div className="about-text flex justify-center gap-6">
                     <div className="flex flex-col items-center gap-2">
-                        <span className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>8.48</span>
+                        <span className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>8.70</span>
                         <span className={`text-sm uppercase tracking-widest ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>CGPA</span>
                     </div>
                     <div className={`w-px h-12 ${isDark ? 'bg-zinc-800' : 'bg-slate-200'}`}></div>

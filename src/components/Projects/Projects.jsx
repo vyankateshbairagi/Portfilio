@@ -85,9 +85,7 @@ const Projects = ({ theme = 'dark' }) => {
         <section
             id="projects"
             ref={containerRef}
-            className={`py-24 px-6 relative transition-colors duration-500 ${
-                isDark ? 'bg-black' : 'bg-slate-100'
-            }`}
+            className="py-24 px-6 relative transition-colors duration-500"
         >
             <div className="max-w-7xl mx-auto">
                 <div className="mb-16 text-center">
