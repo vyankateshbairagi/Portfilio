@@ -1,6 +1,5 @@
  import React, { useState, useRef, useEffect } from 'react';
-import logo from '../assets/Logo.png';
-import { Menu, X, Sun, Moon, Home, Users, Briefcase, Award, Mail, Github, Linkedin, BookOpen } from 'lucide-react';
+import { Menu, X, Sun, Moon, Users, Briefcase, Award, Mail, BookOpen } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -84,16 +83,16 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
     }, [isOpen]);
 
     const navShell = isDark
-        ? `border border-white/5 bg-gradient-to-br from-black/40 via-black/30 to-black/20 backdrop-blur-xl text-white shadow-2xl`
-        : `border border-slate-200/50 bg-gradient-to-br from-white/90 via-slate-50/80 to-white/70 backdrop-blur-xl text-slate-900 shadow-xl`;
+        ? `border border-white/5 bg-linear-to-br from-slate-950/70 via-slate-900/60 to-slate-950/40 backdrop-blur-xl text-white shadow-2xl`
+        : `border border-slate-200/60 bg-linear-to-br from-white/95 via-slate-50/90 to-white/80 backdrop-blur-xl text-slate-900 shadow-xl`;
 
     const linkBase = isDark 
         ? 'text-gray-300 hover:text-white hover:bg-white/5' 
         : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/50';
     
     const linkActive = isDark 
-        ? 'text-white bg-gradient-to-r from-blue-500/20 to-purple-500/20 border-b-2 border-blue-500' 
-        : 'text-slate-900 bg-slate-100/60 border-b-2 border-blue-500';
+        ? 'text-white bg-linear-to-r from-cyan-500/15 to-blue-500/15 border-b-2 border-cyan-400' 
+        : 'text-slate-900 bg-cyan-50/80 border-b-2 border-cyan-500';
 
     const iconButton = isDark 
         ? 'text-gray-400 hover:text-white hover:bg-white/10' 
@@ -102,7 +101,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
     return (
         <nav
             ref={containerRef}
-            className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-[1200px] rounded-2xl z-[100] transition-all duration-300 border px-6 py-3 overflow-hidden h-[60px] ${navShell}`}
+            className={`fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-[1200px] rounded-2xl z-100 transition-all duration-300 border px-6 py-3 overflow-hidden h-[60px] ${navShell}`}
         >
             <div className="flex items-center justify-between h-full">
                 {/* Logo Section */}
@@ -114,7 +113,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
                 //         <img src={logo} alt="Logo" className="h-5 w-auto object-contain select-none" />
                 //     </div> */}
 
-                    <span className={`hidden sm:block text-sm font-bold bg-gradient-to-r ${isDark ? 'from-blue-400 to-purple-400' : 'from-blue-600 to-purple-600'} bg-clip-text text-transparent`}>
+                    <span className={`hidden sm:block text-sm font-bold bg-linear-to-r ${isDark ? 'from-cyan-300 to-blue-300' : 'from-cyan-600 to-blue-600'} bg-clip-text text-transparent`}>
                     Vyankatesh Bairagi
                     </span>
                 </div>

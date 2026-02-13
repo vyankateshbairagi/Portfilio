@@ -64,12 +64,12 @@ const Skills = ({ theme = 'dark' }) => {
             id="skills"
             ref={containerRef}
             className={`py-24 px-6 relative overflow-hidden transition-colors duration-500 ${
-                isDark ? '' : 'bg-slate-50'
+                isDark ? '' : 'bg-white/80'
             }`}
         >
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-7xl mx-auto relative z-10">
                 <div className="mb-16 text-center">
-                    <h2 className={`text-3xl md:text-4xl font-bold mb-4 font-['Poppins'] ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    <h2 className={`text-3xl md:text-4xl font-bold mb-4 font-['Manrope'] ${isDark ? 'text-white' : 'text-slate-900'}`}>
                         Technical <span className={isDark ? 'text-cyan-400' : 'text-cyan-600'}>Stack</span>
                     </h2>
                     <p className={`${isDark ? 'text-zinc-400' : 'text-slate-600'} max-w-2xl mx-auto`}>
@@ -86,6 +86,13 @@ const Skills = ({ theme = 'dark' }) => {
                     <SkillCategory title="Tools & Cloud" items={skills.tools} theme={theme} />
                 </div>
             </div>
+            <div
+                className={`absolute inset-0 z-0 pointer-events-none ${
+                    isDark
+                        ? 'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.1),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_60%)]'
+                        : 'bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)]'
+                }`}
+            />
         </section>
     );
 };

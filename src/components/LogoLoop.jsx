@@ -12,7 +12,7 @@ const cx = (...parts) => parts.filter(Boolean).join(' ');
 
 const useResizeObserver = (callback, elements, dependencies) => {
   useEffect(() => {
-    if (!window.ResizeObserver) {
+    if (!globalThis.ResizeObserver) {
       const handleResize = () => callback();
       window.addEventListener('resize', handleResize);
       callback();
@@ -80,9 +80,9 @@ const useAnimationLoop = (trackRef, targetVelocity, seqWidth, seqHeight, isHover
     if (!track) return;
 
     const prefersReduced =
-      typeof window !== 'undefined' &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      typeof globalThis !== 'undefined' &&
+      globalThis.matchMedia &&
+      globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const seqSize = isVertical ? seqHeight : seqWidth;
 
@@ -95,7 +95,7 @@ const useAnimationLoop = (trackRef, targetVelocity, seqWidth, seqHeight, isHover
     }
 
     if (prefersReduced) {
-      track.style.transform = isVertical ? 'translate3d(0, 0, 0)' : 'translate3d(0, 0, 0)';
+      track.style.transform = isVertical ? `translate3d(0, ${-offsetRef.current}px, 0)` : `translate3d(${-offsetRef.current}px, 0, 0)`;
       return () => {
         lastTimestampRef.current = null;
       };

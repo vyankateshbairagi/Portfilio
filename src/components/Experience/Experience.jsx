@@ -70,11 +70,13 @@ const Experience = ({ theme = 'dark' }) => {
         <section
             id="experience"
             ref={containerRef}
-            className="py-24 px-6 relative z-10 transition-colors duration-500"
+            className={`py-24 px-6 relative overflow-hidden transition-colors duration-500 ${
+                isDark ? '' : 'bg-white/80'
+            }`}
         >
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto relative z-10">
                 <h2
-                    className={`text-3xl md:text-4xl font-extrabold mb-12 font-['Poppins'] text-center tracking-tight drop-shadow-sm ${
+                    className={`text-3xl md:text-4xl font-extrabold mb-12 font-['Manrope'] text-center tracking-tight drop-shadow-sm ${
                         isDark ? 'text-white' : 'text-slate-900'
                     }`}
                 >
@@ -87,6 +89,13 @@ const Experience = ({ theme = 'dark' }) => {
                     ))}
                 </div>
             </div>
+            <div
+                className={`absolute inset-0 z-0 pointer-events-none ${
+                    isDark
+                        ? 'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.1),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_60%)]'
+                        : 'bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)]'
+                }`}
+            />
         </section>
     );
 };

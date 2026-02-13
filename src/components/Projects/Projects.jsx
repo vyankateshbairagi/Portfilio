@@ -21,7 +21,7 @@ const ProjectCard = ({ project, theme = 'dark' }) => {
 
     return (
         <div className={`project-card group relative rounded-2xl overflow-hidden transition-colors duration-300 flex flex-col h-full ${shell}`}>
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-cyan-500/6 to-blue-500/6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
             <div className="p-8 flex flex-col h-full relative z-10">
                 <div className="flex justify-between items-start mb-6">
@@ -29,10 +29,22 @@ const ProjectCard = ({ project, theme = 'dark' }) => {
                         <project.icon size={28} className={project.color} />
                     </div>
                     <div className="flex gap-3">
-                        <a href="#" className={`p-2 transition-colors ${linkColor}`}>
-                            <Github size={20} />
-                        </a>
-                        <a href={project.link} className={`p-2 transition-colors ${linkColor}`}>
+                        {project.repo ? (
+                            <a
+                                href={project.repo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`p-2 transition-colors ${linkColor}`}
+                            >
+                                <Github size={20} />
+                            </a>
+                        ) : null}
+                        <a
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`p-2 transition-colors ${linkColor}`}
+                        >
                             <ExternalLink size={20} />
                         </a>
                     </div>
@@ -42,7 +54,7 @@ const ProjectCard = ({ project, theme = 'dark' }) => {
                     {project.title}
                 </h3>
 
-                <p className={`${descColor} mb-6 leading-relaxed flex-grow`}>
+                <p className={`${descColor} mb-6 leading-relaxed grow`}>
                     {project.description}
                 </p>
 
@@ -85,12 +97,14 @@ const Projects = ({ theme = 'dark' }) => {
         <section
             id="projects"
             ref={containerRef}
-            className="py-24 px-6 relative transition-colors duration-500"
+            className={`py-24 px-6 relative overflow-hidden transition-colors duration-500 ${
+                isDark ? '' : 'bg-white/80'
+            }`}
         >
-            <div className="max-w-7xl mx-auto">
+            <div className="max-w-6xl mx-auto relative z-10">
                 <div className="mb-16 text-center">
-                    <h2 className={`text-3xl md:text-4xl font-bold mb-4 font-['Poppins'] ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        Featured <span className={isDark ? 'text-purple-400' : 'text-purple-600'}>Projects</span>
+                    <h2 className={`text-3xl md:text-4xl font-bold mb-4 font-['Manrope'] ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                        Featured <span className={isDark ? 'text-cyan-300' : 'text-cyan-600'}>Projects</span>
                     </h2>
                     <p className={`${isDark ? 'text-zinc-400' : 'text-slate-600'} max-w-xl mx-auto`}>
                         A selection of projects that showcase my ability to solve problems and build end-to-end solutions.
@@ -103,6 +117,13 @@ const Projects = ({ theme = 'dark' }) => {
                     ))}
                 </div>
             </div>
+            <div
+                className={`absolute inset-0 z-0 pointer-events-none ${
+                    isDark
+                        ? 'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.1),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_60%)]'
+                        : 'bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)]'
+                }`}
+            />
         </section>
     );
 };
