@@ -9,6 +9,7 @@ import StarBorder from "./components/StarBorder";
 import About from "./components/About/About";
 import Skills from "./components/Skills/Skills.jsx";
 import Projects from "./components/Projects/Projects.jsx";
+import Blogs from "./components/Blogs/Blogs.jsx";
 import Experience from "./components/Experience/Experience.jsx";
 import Contact from "./components/Contact/Contact";
 import { Linkedin, Github, Youtube, Twitter, Mail } from "lucide-react";
@@ -167,6 +168,7 @@ function App() {
       <About theme={theme} />
       <Skills theme={theme} />
       <Projects theme={theme} />
+      <Blogs theme={theme} username="vyankateshbairagi" />
       <Experience theme={theme} />
       <Contact theme={theme} />
     </div>

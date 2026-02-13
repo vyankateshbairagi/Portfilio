@@ -1,6 +1,6 @@
  import React, { useState, useRef, useEffect } from 'react';
 import logo from '../assets/Logo.png';
-import { Menu, X, Sun, Moon, Home, Users, Briefcase, Award, Mail, Github, Linkedin } from 'lucide-react';
+import { Menu, X, Sun, Moon, Home, Users, Briefcase, Award, Mail, Github, Linkedin, BookOpen } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -14,6 +14,7 @@ const navItems = [
     { name: 'About', icon: Users, href: '#about' },
     { name: 'Skills', icon: Award, href: '#skills' },
     { name: 'Projects', icon: Briefcase, href: '#projects' },
+    { name: 'Blogs', icon: BookOpen, href: '#blogs' },
     { name: 'Experience', icon: Briefcase, href: '#experience' },
     { name: 'Contact', icon: Mail, href: '#contact' }
 ];
@@ -38,7 +39,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['about', 'skills', 'projects', 'experience', 'contact'];
+            const sections = ['about', 'skills', 'projects', 'blogs', 'experience', 'contact'];
             const scrollPosition = window.scrollY + 200;
 
             for (const section of sections) {

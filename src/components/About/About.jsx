@@ -1,14 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import SplitText from '../SplitText'; // Assuming SplitText is in components root or I need to check where it is
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = ({ theme = 'dark' }) => {
     const isDark = theme === 'dark';
     const containerRef = useRef(null);
-    const textRef = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -33,64 +31,148 @@ const About = ({ theme = 'dark' }) => {
         <section
             id="about"
             ref={containerRef}
-            className={`min-h-[80vh] flex flex-col justify-center items-center pt-40 pb-20 px-6 relative transition-colors duration-500 ${
+            className={`relative overflow-hidden px-6 py-24 md:py-32 transition-colors duration-500 ${
                 isDark ? '' : 'bg-white/80'
             }`}
         >
-            <div className="max-w-4xl mx-auto text-center z-10">
-                <h2
-                    className={`about-text text-xl md:text-2xl font-semibold mb-6 tracking-wide uppercase ${
-                        isDark ? 'text-cyan-400' : 'text-cyan-600'
-                    }`}
-                >
-                    Who I Am
-                </h2>
+            <div className="relative z-10 max-w-6xl mx-auto">
+                <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+                    <div>
+                        <p
+                            className={`about-text text-sm md:text-base uppercase tracking-[0.35em] mb-4 ${
+                                isDark ? 'text-cyan-300' : 'text-cyan-700'
+                            }`}
+                        >
+                            About Signal
+                        </p>
 
-                <h3
-                    className={`about-text text-4xl md:text-5xl font-bold mb-8 leading-tight font-['Poppins'] ${
-                        isDark ? 'text-white' : 'text-slate-900'
-                    }`}
-                >
-                    Building Scalable <br />
-                    <span className={isDark ? 'text-zinc-500' : 'text-slate-500'}>Digital Experiences.</span>
-                </h3>
+                        <h2
+                            className={`about-text text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-['Poppins'] ${
+                                isDark ? 'text-white' : 'text-slate-900'
+                            }`}
+                        >
+                            Designing interfaces that feel fast, clear, and alive.
+                        </h2>
 
-                <p
-                    className={`about-text text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10 ${
-                        isDark ? 'text-zinc-400' : 'text-slate-600'
-                    }`}
-                >
-                    I am a driven Computer Engineering student with a passion for web development,
-                    backend systems, and scalable application design. Committed to delivering
-                    high-quality solutions with a strong foundation in the <span className="text-white">MERN stack</span>,
-                    learning new technologies rapidly, and growing into a versatile software professional
-                    capable of contributing to multiple domains. 
-                </p>
+                        <p
+                            className={`about-text mt-6 text-lg md:text-xl leading-relaxed max-w-2xl ${
+                                isDark ? 'text-zinc-400' : 'text-slate-600'
+                            }`}
+                        >
+                            I am a Computer Engineering student focused on web development, backend
+                            systems, and scalable application design. I work with the MERN stack to
+                            ship reliable products, learn rapidly, and build experiences that scale with
+                            real users.
+                        </p>
 
-                <div className="about-text flex justify-center gap-6">
-                    <div className="flex flex-col items-center gap-2">
-                        <span className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>8.70</span>
-                        <span className={`text-sm uppercase tracking-widest ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>CGPA</span>
+                        <div className="about-text mt-8 flex flex-wrap gap-3">
+                            {[
+                                'Frontend-first',
+                                'MERN stack',
+                                'API architecture',
+                                'Performance-minded',
+                            ].map((label) => (
+                                <span
+                                    key={label}
+                                    className={`rounded-full border px-4 py-2 text-sm tracking-wide ${
+                                        isDark
+                                            ? 'border-cyan-400/30 bg-cyan-500/10 text-cyan-200'
+                                            : 'border-cyan-300 bg-cyan-50 text-cyan-800'
+                                    }`}
+                                >
+                                    {label}
+                                </span>
+                            ))}
+                        </div>
                     </div>
-                    <div className={`w-px h-12 ${isDark ? 'bg-zinc-800' : 'bg-slate-200'}`}></div>
-                    <div className="flex flex-col items-center gap-2">
-                        <span className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>5+</span>
-                        <span className={`text-sm uppercase tracking-widest ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>Projects</span>
+
+                    <div className="relative">
+                        <div
+                            className={`about-text rounded-3xl border p-8 backdrop-blur-xl ${
+                                isDark
+                                    ? 'border-white/10 bg-linear-to-br from-white/5 via-white/2 to-transparent'
+                                    : 'border-slate-200/70 bg-white/70'
+                            }`}
+                        >
+                            <div className="flex items-center justify-between">
+                                <p className={`text-xs uppercase tracking-[0.25em] ${isDark ? 'text-zinc-400' : 'text-slate-500'}`}>
+                                    Core Metrics
+                                </p>
+                                <span
+                                    className={`text-xs font-semibold ${
+                                        isDark ? 'text-cyan-300' : 'text-cyan-700'
+                                    }`}
+                                >
+                                    2026
+                                </span>
+                            </div>
+
+                            <div className="mt-6 grid grid-cols-2 gap-6">
+                                <div>
+                                    <p className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                        8.70
+                                    </p>
+                                    <p className={`text-xs uppercase tracking-widest ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>
+                                        CGPA
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                        5+
+                                    </p>
+                                    <p className={`text-xs uppercase tracking-widest ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>
+                                        Projects
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                        3
+                                    </p>
+                                    <p className={`text-xs uppercase tracking-widest ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>
+                                        Domains
+                                    </p>
+                                </div>
+                                <div>
+                                    <p className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                                        12+
+                                    </p>
+                                    <p className={`text-xs uppercase tracking-widest ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>
+                                        Experiments
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className={`mt-8 rounded-2xl border px-5 py-4 ${isDark ? 'border-white/10 bg-black/30' : 'border-slate-200 bg-white/70'}`}>
+                                <p className={`text-xs uppercase tracking-[0.2em] ${isDark ? 'text-zinc-500' : 'text-slate-500'}`}>
+                                    Current Focus
+                                </p>
+                                <p className={`mt-2 text-sm leading-relaxed ${isDark ? 'text-zinc-300' : 'text-slate-600'}`}>
+                                    UI polish, API reliability, and performance tuning for production-ready apps.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div
+                            className={`absolute -top-8 -right-6 h-32 w-32 rounded-full blur-[70px] ${
+                                isDark ? 'bg-cyan-500/30' : 'bg-cyan-300/60'
+                            }`}
+                        />
+                        <div
+                            className={`absolute -bottom-10 left-4 h-40 w-40 rounded-full blur-[90px] ${
+                                isDark ? 'bg-blue-500/20' : 'bg-blue-200/60'
+                            }`}
+                        />
                     </div>
                 </div>
             </div>
 
-            {/* Background decorative elements */}
             <div
-                className={`absolute top-1/2 left-10 w-64 h-64 rounded-full blur-[120px] pointer-events-none ${
-                    isDark ? 'bg-cyan-900/10' : 'bg-cyan-200/60'
+                className={`absolute inset-0 z-0 pointer-events-none ${
+                    isDark
+                        ? 'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.16),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.18),transparent_60%)]'
+                        : 'bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.22),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.18),transparent_60%)]'
                 }`}
-            ></div>
-            <div
-                className={`absolute bottom-10 right-10 w-64 h-64 rounded-full blur-[120px] pointer-events-none ${
-                    isDark ? 'bg-purple-900/10' : 'bg-purple-200/50'
-                }`}
-            ></div>
+            />  
         </section>
     );
 };
