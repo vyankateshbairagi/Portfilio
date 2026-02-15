@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, memo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Mail, Github, Linkedin, ArrowRight } from 'lucide-react';
@@ -266,4 +266,4 @@ const Contact = ({ theme = 'dark' }) => {
     );
 };
 
-export default Contact;
+export default memo(Contact);

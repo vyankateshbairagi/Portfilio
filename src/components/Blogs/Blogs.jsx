@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 
 const formatDate = (value) => {
     if (!value) {
@@ -206,4 +206,4 @@ const Blogs = ({ theme = "dark", username = "vyankateshbairagi", maxItems = 3 })
     );
 };
 
-export default Blogs;
+export default memo(Blogs);

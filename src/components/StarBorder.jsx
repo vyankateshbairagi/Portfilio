@@ -1,4 +1,6 @@
-const StarBorder = ({
+import { memo } from 'react';
+
+const StarBorder = memo(({
   as: Component = 'button',
   className = '',
   color = 'white',
@@ -33,7 +35,7 @@ const StarBorder = ({
       </div>
     </Component>
   );
-};
+});
 
 export default StarBorder;
 

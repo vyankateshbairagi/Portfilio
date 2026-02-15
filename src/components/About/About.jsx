@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -178,4 +178,4 @@ const About = ({ theme = 'dark' }) => {
     );
 };
 
-export default About;
+export default memo(About);

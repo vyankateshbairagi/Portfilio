@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, memo } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { skills } from './skills';
@@ -97,4 +97,4 @@ const Skills = ({ theme = 'dark' }) => {
     );
 };
 
-export default Skills;
+export default memo(Skills);

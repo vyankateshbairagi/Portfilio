@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 
 const ParticleBackground = ({ 
   particleCount = 50, 
@@ -150,4 +150,4 @@ const ParticleBackground = ({
   );
 };
 
-export default ParticleBackground;
+export default memo(ParticleBackground);

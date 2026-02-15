@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, memo } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import ParticleBackground from "./components/ParticleBackground";
@@ -14,11 +14,10 @@ import Contact from "./components/Contact/Contact";
 import { Linkedin, Github, Youtube, Twitter, Mail } from "lucide-react";
 
 const getInitialTheme = () => {
-  if (globalThis.window === undefined) {
-    return "dark";
+  if (typeof globalThis.window === 'undefined') {
+    return 'dark';
   }
-
-  return globalThis.localStorage?.getItem("theme") || "dark";
+  return globalThis.localStorage?.getItem('theme') || 'dark';
 };
 
 const DevToIcon = ({ className }) => (
@@ -83,11 +82,11 @@ function App() {
     globalThis.localStorage?.setItem("theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => setTheme(isDark ? "light" : "dark");
+  const toggleTheme = useCallback(() => setTheme(isDark ? "light" : "dark"), [isDark]);
 
-  const handleAnimationComplete = () => {
-    console.log("All letters have animated!");
-  };
+  const handleAnimationComplete = useCallback(() => {
+    // Animation complete - no logging in production
+  }, []);
 
   const pageShell = isDark ? "bg-[#0b1120] text-white" : "bg-slate-50 text-slate-900";
   const particleTone = isDark ? "#22d3ee" : "#0ea5e9";
@@ -194,6 +193,7 @@ function App() {
               <img
                 src="/logo.png"
                 alt="Vyankatesh Bairagi"
+                loading="lazy"
                 className="w-full h-full rounded-full object-cover shadow-2xl"
               />
             </div>
@@ -212,4 +212,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);

@@ -1,4 +1,4 @@
- import React, { useState, useRef, useEffect } from 'react';
+ import React, { useState, useRef, useEffect, memo } from 'react';
 import { Menu, X, Sun, Moon, Users, Briefcase, Award, Mail, BookOpen } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
@@ -212,7 +212,7 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
     );
 };
 
-export default Navbar;
+export default memo(Navbar);
 
 // This Navbar component is designed to be responsive and visually appealing, with smooth animations and a modern aesthetic. It includes a logo, navigation links with icons, a theme toggle button, and a mobile menu that animates open and closed. The active section is highlighted as the user scrolls through the page, providing clear navigation cues.  
 
