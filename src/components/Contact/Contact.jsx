@@ -65,22 +65,26 @@ const Contact = ({ theme = 'dark' }) => {
         event.preventDefault();
         setStatus({ state: 'loading', message: '' });
 
+        const payload = {
+            name: formState.name,
+            email: formState.email,
+            phone: formState.phone,
+            subject: formState.subject,
+            message: formState.message,
+            company: formState.company,
+        };
+
         try {
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: formState.name,
-                    email: formState.email,
-                    phone: formState.phone,
-                    subject: formState.subject,
-                    message: formState.message,
-                    company: formState.company,
-                }),
+                body: JSON.stringify(payload),
             });
 
+            const result = await response.json().catch(() => ({}));
+
             if (!response.ok) {
-                throw new Error('Request failed');
+                throw new Error(result.message || 'Request failed');
             }
 
             setFormState({
@@ -91,11 +95,12 @@ const Contact = ({ theme = 'dark' }) => {
                 message: '',
                 company: '',
             });
-            setStatus({ state: 'success', message: 'Thanks! Your message has been sent.' });
+            setStatus({
+                state: 'success',
+                message: result.message || 'Thanks! Your message has been sent.',
+            });
         } catch (error) {
-            // Log the error for debugging
             console.error('Form submission error:', error instanceof Error ? error.message : String(error));
-            // Show user-friendly error message
             setStatus({ state: 'error', message: 'Sorry, something went wrong. Try again.' });
         }
     };

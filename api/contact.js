@@ -1,15 +1,18 @@
 import nodemailer from "nodemailer";
 
 const buildTransport = () => {
+  const host = process.env.SMTP_HOST || process.env.EMAIL_HOST;
+  const user = process.env.SMTP_USER || process.env.EMAIL_USER;
+  const pass = process.env.SMTP_PASS || process.env.EMAIL_PASS;
   const port = Number(process.env.SMTP_PORT || 587);
 
   return nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host,
     port,
     secure: port === 465,
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user,
+      pass,
     },
   });
 };
@@ -58,8 +61,8 @@ export default async function handler(request, response) {
   }
 
   const transport = buildTransport();
-  const toAddress = process.env.MAIL_TO;
-  const fromAddress = process.env.MAIL_FROM;
+  const toAddress = process.env.MAIL_TO || process.env.EMAIL_USER;
+  const fromAddress = process.env.MAIL_FROM || process.env.EMAIL_USER;
   const fromName = process.env.MAIL_FROM_NAME || "Portfolio";
 
   if (!toAddress || !fromAddress) {

@@ -29,11 +29,12 @@ const ProjectCard = ({ project, theme = 'dark' }) => {
                         <project.icon size={28} className={project.color} />
                     </div>
                     <div className="flex gap-3">
-                        {project.repo ? (
+                        {project.github ? (
                             <a
-                                href={project.repo}
+                                href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label={`View ${project.title} on GitHub`}
                                 className={`p-2 transition-colors ${linkColor}`}
                             >
                                 <Github size={20} />
