@@ -160,7 +160,7 @@ function App() {
               </a>
               <StarBorder
                 as="a"
-                href="https://drive.google.com/file/d/1hHlyXoqETiGvsvnh88Odou5Y6kgKbEEJ/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1gnvLfqiMNAgUPnhyYJGwbpSqxmRSApTD/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="custom-class"
