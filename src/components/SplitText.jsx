@@ -23,17 +23,17 @@ const SplitText = ({
 }) => {
   const ref = useRef(null);
   const animationCompletedRef = useRef(false);
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+  const [fontsLoaded, setFontsLoaded] = useState(() => {
+    return typeof document !== 'undefined' && document.fonts?.status === 'loaded';
+  });
 
   useEffect(() => {
-    if (document.fonts.status === 'loaded') {
-      setFontsLoaded(true);
-    } else {
+    if (!fontsLoaded && typeof document !== 'undefined' && document.fonts) {
       document.fonts.ready.then(() => {
         setFontsLoaded(true);
       });
     }
-  }, []);
+  }, [fontsLoaded]);
 
   useGSAP(
     () => {
@@ -43,7 +43,7 @@ const SplitText = ({
       if (el._rbsplitInstance) {
         try {
           el._rbsplitInstance.revert();
-        } catch (_) {
+        } catch {
           /* ignore */
         }
         el._rbsplitInstance = null;
@@ -112,7 +112,7 @@ const SplitText = ({
         });
         try {
           splitInstance.revert();
-        } catch (_) {
+        } catch {
           /* ignore */
         }
         el._rbsplitInstance = null;

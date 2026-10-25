@@ -19,17 +19,17 @@ const formatDate = (value) => {
 
 const getBlogPalette = (isDark) => ({
     cardShell: isDark
-        ? "bg-zinc-900/80 border-zinc-800 hover:border-cyan-400/60"
-        : "bg-white border-slate-200 hover:border-cyan-500/40 shadow-sm",
-    titleColor: isDark ? "text-white" : "text-slate-900",
-    descColor: isDark ? "text-zinc-400" : "text-slate-600",
+        ? "bg-slate-900/40 border-slate-800/80 backdrop-blur-xl shadow-2xl shadow-black/30 card-highlight hover:border-cyan-500/40 transition-all duration-300"
+        : "bg-white/85 border-slate-200/90 backdrop-blur-xl shadow-xl shadow-slate-200/50 hover:border-cyan-500/40 transition-all duration-300",
+    titleColor: isDark ? "text-white group-hover:text-cyan-300 transition-colors" : "text-slate-900 group-hover:text-cyan-700 transition-colors",
+    descColor: isDark ? "text-slate-400" : "text-slate-600",
     pillShell: isDark
-        ? "text-zinc-400 bg-zinc-800/50 border border-zinc-700/50"
-        : "text-slate-600 bg-slate-100 border border-slate-200",
-    linkTone: isDark ? "text-cyan-300" : "text-cyan-700",
+        ? "text-cyan-300 bg-cyan-500/10 border border-cyan-500/20 shadow-xs"
+        : "text-cyan-800 bg-cyan-50 border border-cyan-200 shadow-xs",
+    linkTone: isDark ? "text-cyan-400 hover:text-cyan-300" : "text-cyan-600 hover:text-cyan-800",
     buttonTone: isDark
-        ? "border-cyan-400/40 text-cyan-200 hover:bg-cyan-400/10"
-        : "border-cyan-500/40 text-cyan-700 hover:bg-cyan-50",
+        ? "bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 text-slate-950 font-bold hover:from-cyan-300 hover:to-blue-400 shadow-lg shadow-cyan-500/20"
+        : "bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold hover:from-cyan-600 hover:to-blue-700 shadow-md",
 });
 
 const Blogs = ({ theme = "dark", username = "vyankateshbairagi", maxItems = 3 }) => {
@@ -181,16 +181,19 @@ const Blogs = ({ theme = "dark", username = "vyankateshbairagi", maxItems = 3 })
     }
 
     return (
-        <section id="blogs" className={`py-24 px-6 relative overflow-hidden transition-colors duration-500 ${isDark ? '' : 'bg-white/80'}`}>
+        <section id="blogs" className="py-24 px-6 relative overflow-hidden transition-colors duration-500">
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="mb-12 text-center">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase mb-3 border bg-cyan-500/10 border-cyan-400/25 text-cyan-300 backdrop-blur-md shadow-sm">
+                        <span>Technical Articles</span>
+                    </div>
                     <h2
-                        className={`text-3xl md:text-4xl font-bold mb-3 font-['Manrope'] ${palette.titleColor}`}
+                        className={`text-3xl md:text-5xl font-extrabold mb-3 tracking-tight font-['Plus_Jakarta_Sans',sans-serif] ${palette.titleColor}`}
                     >
-                        Latest <span className={isDark ? "text-cyan-300" : "text-cyan-600"}>Blogs</span>
+                        Latest <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">Articles & Insights</span>
                     </h2>
-                    <p className={`${palette.descColor} max-w-xl mx-auto`}>
-                        Fresh writing and experiments from my DEV.to profile.
+                    <p className={`${palette.descColor} max-w-xl mx-auto text-base leading-relaxed`}>
+                        Technical writeups, architectural deep-dives, and developer guides from DEV.to.
                     </p>
                 </div>
                 {content}

@@ -82,7 +82,7 @@ const ScrollReveal = ({
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, trigger]);
 
   return (
     <h2 ref={containerRef} className={`my-5 ${containerClassName}`}>

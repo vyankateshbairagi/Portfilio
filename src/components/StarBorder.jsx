@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 const StarBorder = memo(({
-  as: Component = 'button',
+  as: Tag = 'button',
   className = '',
   color = 'white',
   speed = '6s',
@@ -10,7 +10,7 @@ const StarBorder = memo(({
   ...rest
 }) => {
   return (
-    <Component
+    <Tag
       className={`relative inline-block overflow-hidden rounded-[20px] ${className} group cursor-pointer transition-transform duration-300 hover:scale-105 active:scale-95`}
       style={{
         padding: `${thickness}px 0`,
@@ -33,7 +33,7 @@ const StarBorder = memo(({
         className="relative z-1 bg-black/20 backdrop-blur-md border border-white/10 text-white text-center text-[16px] py-[16px] px-[26px] rounded-[20px] transition-colors duration-300 group-hover:bg-black/30 group-hover:border-white/20">
         {children}
       </div>
-    </Component>
+    </Tag>
   );
 });
 

@@ -1,100 +1,123 @@
-import React, { useEffect, useRef, memo } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { skills } from './skills';
+import React, { memo } from 'react';
+import {
+  Wrench,
+  Code2,
+  Layout,
+  Server,
+  Database,
+  Lock,
+  Terminal,
+  Cpu
+} from 'lucide-react';
+import { skillsData } from '../../data/skillsData';
 
-gsap.registerPlugin(ScrollTrigger);
+const categoryIcons = {
+  languages: Code2,
+  frontend: Layout,
+  backend: Server,
+  databases: Database,
+  authAndIntegrations: Lock,
+  tools: Terminal,
+  coreConcepts: Cpu
+};
 
-const SkillCategory = ({ title, items, theme = 'dark' }) => {
-    const isDark = theme === 'dark';
-    const cardShell = isDark
-        ? 'bg-zinc-900/40 border border-zinc-800/50 hover:border-zinc-700/50'
-        : 'bg-white border border-slate-200 shadow-sm hover:border-slate-300';
-    const tileBg = isDark ? 'bg-black/20 hover:bg-zinc-800/30' : 'bg-slate-50 hover:bg-slate-100';
-    const titleColor = isDark ? 'text-zinc-300' : 'text-slate-700';
-    const textColor = isDark ? 'text-zinc-400 group-hover:text-zinc-200' : 'text-slate-600 group-hover:text-slate-800';
+const SkillCategoryCard = ({ categoryKey, category, theme = 'dark' }) => {
+  const isDark = theme === 'dark';
+  const Icon = categoryIcons[categoryKey] || Code2;
 
-    return (
-        <div className={`skill-category min-w-[280px] flex-1 rounded-2xl p-6 transition-colors duration-300 ${cardShell}`}>
-            <h3 className={`text-lg font-semibold mb-6 flex items-center gap-2 ${titleColor}`}>
-                {title}
+  const cardShell = isDark
+    ? 'bg-slate-900/40 border-slate-800/80 backdrop-blur-xl shadow-2xl shadow-black/30 card-highlight hover:border-cyan-500/40 hover:shadow-cyan-950/25 transition-all duration-300'
+    : 'bg-white/85 border-slate-200/90 backdrop-blur-xl shadow-xl shadow-slate-200/50 hover:border-cyan-500/40 transition-all duration-300';
+
+  const pillShell = isDark
+    ? 'bg-slate-800/70 border-slate-700/70 text-slate-200 hover:border-cyan-400/60 hover:text-cyan-300 hover:bg-slate-800/90 shadow-xs'
+    : 'bg-slate-100 border-slate-200 text-slate-800 hover:border-cyan-500 hover:text-cyan-700 hover:bg-white shadow-xs';
+
+  return (
+    <div
+      className={`rounded-2xl border p-6 flex flex-col justify-between transition-all duration-300 group hover:-translate-y-1 ${cardShell}`}
+    >
+      <div>
+        <div className="flex items-center gap-3 mb-3">
+          <div className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 group-hover:bg-cyan-500/20 transition-colors shadow-sm">
+            <Icon size={20} />
+          </div>
+          <div>
+            <h3
+              className={`text-base font-bold font-['Plus_Jakarta_Sans',sans-serif] ${
+                isDark ? 'text-white' : 'text-slate-900'
+              }`}
+            >
+              {category.title}
             </h3>
-            <div className="grid grid-cols-2 gap-4">
-                {items.map((skill, idx) => (
-                    <div
-                        key={idx}
-                        className={`flex flex-col gap-2 p-3 rounded-xl transition-all duration-300 group ${tileBg}`}
-                    >
-                        <skill.icon size={28} className={`${skill.color} mb-1 transition-transform group-hover:scale-110 duration-300`} />
-                        <span className={`text-sm font-medium transition-colors ${textColor}`}>
-                            {skill.name}
-                        </span>
-                    </div>
-                ))}
-            </div>
+            <p
+              className={`text-xs ${
+                isDark ? 'text-slate-400' : 'text-slate-500'
+              }`}
+            >
+              {category.description}
+            </p>
+          </div>
         </div>
-    );
+
+        <div className="flex flex-wrap gap-2 mt-4">
+          {category.skills.map((skill, idx) => (
+            <span
+              key={idx}
+              className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium border transition-all duration-200 ${pillShell}`}
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const Skills = ({ theme = 'dark' }) => {
-    const isDark = theme === 'dark';
-    const containerRef = useRef(null);
+  const isDark = theme === 'dark';
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.from(".skill-category", {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 85%",
-                    toggleActions: "play none none reverse"
-                }
-            });
-        }, containerRef);
-
-        return () => ctx.revert();
-    }, []);
-
-    return (
-        <section
-            id="skills"
-            ref={containerRef}
-            className={`py-24 px-6 relative overflow-hidden transition-colors duration-500 ${
-                isDark ? '' : 'bg-white/80'
+  return (
+    <section
+      id="skills"
+      className="py-24 px-6 relative overflow-hidden transition-colors duration-500"
+    >
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="mb-14 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wider uppercase mb-3 border bg-cyan-500/10 border-cyan-400/25 text-cyan-300 backdrop-blur-md shadow-sm">
+            <Wrench size={13} />
+            <span>Technical Capabilities</span>
+          </div>
+          <h2
+            className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight font-['Plus_Jakarta_Sans',sans-serif] mb-4 ${
+              isDark ? 'text-white' : 'text-slate-900'
             }`}
-        >
-            <div className="max-w-7xl mx-auto relative z-10">
-                <div className="mb-16 text-center">
-                    <h2 className={`text-3xl md:text-4xl font-bold mb-4 font-['Manrope'] ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                        Technical <span className={isDark ? 'text-cyan-400' : 'text-cyan-600'}>Stack</span>
-                    </h2>
-                    <p className={`${isDark ? 'text-zinc-400' : 'text-slate-600'} max-w-2xl mx-auto`}>
-                        A curated set of tools and technologies I use to build scalable, high-performance applications.
-                    </p>
-                </div>
+          >
+            Technical <span className="bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">Stack & Core</span>
+          </h2>
+          <p
+            className={`text-base sm:text-lg max-w-2xl mx-auto leading-relaxed ${
+              isDark ? 'text-slate-400' : 'text-slate-600'
+            }`}
+          >
+            Technologies, frameworks, databases, and computer science fundamentals verified through hands-on development and production projects.
+          </p>
+        </div>
 
-                <div className="flex flex-wrap gap-6 justify-center">
-                    <SkillCategory title="Languages" items={skills.languages} theme={theme} />
-                    <SkillCategory title="Frontend" items={skills.frontend} theme={theme} />
-                    <SkillCategory title="Backend" items={skills.backend} theme={theme} />
-                    <SkillCategory title="Database" items={skills.database} theme={theme} />
-                    <SkillCategory title="Core Competencies" items={skills.coreCompetencies} theme={theme} />
-                    <SkillCategory title="Tools & Cloud" items={skills.tools} theme={theme} />
-                </div>
-            </div>
-            <div
-                className={`absolute inset-0 z-0 pointer-events-none ${
-                    isDark
-                        ? 'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.1),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_60%)]'
-                        : 'bg-[radial-gradient(circle_at_top_left,rgba(14,165,233,0.18),transparent_55%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.15),transparent_60%)]'
-                }`}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {Object.entries(skillsData).map(([key, category]) => (
+            <SkillCategoryCard
+              key={key}
+              categoryKey={key}
+              category={category}
+              theme={theme}
             />
-        </section>
-    );
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default memo(Skills);
