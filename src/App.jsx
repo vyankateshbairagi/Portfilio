@@ -16,7 +16,8 @@ import {
   Linkedin,
   Github,
   Mail,
-  Download,
+  FileText,
+  ExternalLink,
   ArrowRight,
   Briefcase,
   BookOpen,
@@ -203,16 +204,20 @@ function App() {
                 </a>
 
                 <a
-                  href="/Vyankatesh_Bairagi_CV.pdf"
-                  download="Vyankatesh_Bairagi_CV.pdf"
-                  className={`inline-flex items-center gap-1.5 px-4.5 py-2.5 rounded-xl text-sm font-semibold border backdrop-blur-md transition-all hover:-translate-y-0.5 ${
+                  href="https://drive.google.com/file/d/1tMUo6QQLVC35D9_N73-UymSlpESYNnxQ/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl text-sm font-semibold border backdrop-blur-md transition-all hover:-translate-y-0.5 ${
                     isDark
                       ? "bg-slate-900/80 border-slate-700/80 text-slate-200 hover:border-cyan-400/60 hover:text-white hover:bg-slate-800/80 shadow-md"
                       : "bg-white/90 border-slate-200 text-slate-800 hover:border-slate-300 hover:bg-slate-50 shadow-sm"
                   }`}
+                  aria-label="View Resume in Google Drive (opens in a new tab)"
+                  title="View Resume in Google Drive"
                 >
-                  <Download size={16} className="text-cyan-400" />
-                  <span>Resume</span>
+                  <FileText size={16} className="text-cyan-400" />
+                  <span>View Resume</span>
+                  <ExternalLink size={14} className="text-slate-400" />
                 </a>
 
                 <a

@@ -5,6 +5,8 @@ import {
   Sun,
   Moon,
   Download,
+  FileText,
+  ExternalLink,
   Home,
   User,
   Briefcase,
@@ -152,20 +154,22 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
 
         {/* Right CTA and Controls */}
         <div className="flex items-center gap-2.5 sm:gap-3.5">
-          {/* Download Resume Action */}
+          {/* View Resume Action */}
           <a
-            href="/Vyankatesh_Bairagi_CV.pdf"
-            download="Vyankatesh_Bairagi_CV.pdf"
+            href="https://drive.google.com/file/d/1tMUo6QQLVC35D9_N73-UymSlpESYNnxQ/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`hidden sm:inline-flex items-center gap-2 px-4 py-2 sm:px-4.5 sm:py-2.5 rounded-xl text-sm font-semibold tracking-wide transition-all duration-200 border ${
               isDark
                 ? 'bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-cyan-500/10 border-cyan-400/30 text-cyan-200 hover:bg-cyan-500/20 hover:border-cyan-400/60 shadow-xs shadow-cyan-500/10'
                 : 'bg-cyan-50 border-cyan-200 text-cyan-800 hover:bg-cyan-100 shadow-xs'
             }`}
-            title="Download Official Resume (PDF)"
-            aria-label="Download Official Resume (PDF)"
+            title="View Official Resume (Google Drive)"
+            aria-label="View Official Resume (Google Drive)"
           >
-            <Download size={16} className="text-cyan-400" />
+            <FileText size={16} className="text-cyan-400" />
             <span>Resume</span>
+            <ExternalLink size={13} className="opacity-70" />
           </a>
 
           {/* Theme Toggle Button */}
@@ -236,13 +240,15 @@ const Navbar = ({ theme = 'dark', onToggleTheme = () => {} }) => {
 
             <div className="pt-3 mt-2 border-t border-slate-800/40 flex flex-col gap-2">
               <a
-                href="/Vyankatesh_Bairagi_CV.pdf"
-                download="Vyankatesh_Bairagi_CV.pdf"
+                href="https://drive.google.com/file/d/1tMUo6QQLVC35D9_N73-UymSlpESYNnxQ/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center justify-center gap-2.5 py-3 rounded-xl text-base font-semibold bg-cyan-500 text-slate-950 hover:bg-cyan-400 transition-colors shadow-md"
               >
-                <Download size={18} />
-                <span>Download Resume (PDF)</span>
+                <FileText size={18} />
+                <span>View Resume</span>
+                <ExternalLink size={16} />
               </a>
             </div>
           </div>

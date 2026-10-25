@@ -9,7 +9,7 @@ import {
   Copy,
   ExternalLink,
   MessageSquare,
-  Download
+  FileText
 } from 'lucide-react';
 
 const Contact = ({ theme = 'dark' }) => {
@@ -269,14 +269,16 @@ const Contact = ({ theme = 'dark' }) => {
                   <ExternalLink size={16} className="text-slate-500" />
                 </a>
 
-                {/* Download Resume Action */}
+                {/* View Resume Action */}
                 <a
-                  href="/Vyankatesh_Bairagi_CV.pdf"
-                  download="Vyankatesh_Bairagi_CV.pdf"
+                  href="https://drive.google.com/file/d/1tMUo6QQLVC35D9_N73-UymSlpESYNnxQ/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 hover:from-cyan-400 hover:to-blue-500 transition-all shadow-md font-['Manrope']"
                 >
-                  <Download size={16} />
-                  <span>Download Verified Resume (PDF)</span>
+                  <FileText size={16} />
+                  <span>View Verified Resume</span>
+                  <ExternalLink size={14} />
                 </a>
               </div>
             </div>
